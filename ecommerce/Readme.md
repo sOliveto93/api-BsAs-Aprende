@@ -14,10 +14,17 @@ Este proyecto es una API REST desarrollada en **Java 21 + Spring Boot** que perm
 - Lombok
 - Jakarta Validation
 - Maven
-
+- Docker
 ---
 
 ## ⚙️ Configuración y ejecución
+https://api-bsas-aprende.onrender.com 
+
+doc con Swagger --> URL[https://api-bsas-aprende.onrender.com/swagger-ui.html]
+
+(el deploy esta en Render por lo tanto al principio hay tiempo de espera mientras levanta el back)
+
+## Ejecuta en local (cambiar entorno de spring a dev)
 
 1. Cloná el repositorio:
 
@@ -25,11 +32,16 @@ Este proyecto es una API REST desarrollada en **Java 21 + Spring Boot** que perm
    git clone https://github.com/tu-usuario/api-BsAs-Aprende
    cd api-BsAs-Aprende
 ```
-2. Ejecutá la aplicación:
+2. Perfil por default para pruebas
+   application.properties
+```java
+spring.profiles.active=dev
+```
+3. Ejecutá la aplicación:
 ```bash
 ./mvnw spring-boot:run
 ```
-3. Accedé a H2 Console (opcional):
+4. Accedé a H2 Console (opcional):
 
 ```bash
 URL: http://localhost:8080/h2-console
