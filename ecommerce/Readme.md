@@ -147,6 +147,6 @@ Ejemplo:
 }
 ```
 
-📝 Autor
+## 📝 Autor
 Desarrollado por Sebastián Oliveto como parte de un proyecto para Buenos Aires Aprende Curso Java Back-End.
 Podés contactarme para dudas o sugerencias.
