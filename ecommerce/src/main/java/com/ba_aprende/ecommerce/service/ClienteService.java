@@ -2,9 +2,7 @@ package com.ba_aprende.ecommerce.service;
 
 import com.ba_aprende.ecommerce.dto.Cliente.ClienteDto;
 import com.ba_aprende.ecommerce.dto.Cliente.ClienteDtoResponse;
-import com.ba_aprende.ecommerce.dto.pedido.PedidoDtoResponse;
 import com.ba_aprende.ecommerce.entity.Cliente;
-import com.ba_aprende.ecommerce.entity.Pedido;
 import com.ba_aprende.ecommerce.exception.ClienteInactivoException;
 import com.ba_aprende.ecommerce.exception.ClienteNotFoundException;
 import com.ba_aprende.ecommerce.repository.ClienteRepository;

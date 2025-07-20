@@ -9,14 +9,11 @@ import com.ba_aprende.ecommerce.entity.Pedido;
 import com.ba_aprende.ecommerce.entity.Producto;
 import com.ba_aprende.ecommerce.exception.ClienteInactivoException;
 import com.ba_aprende.ecommerce.exception.StockInsuficienteException;
-import com.ba_aprende.ecommerce.repository.ClienteRepository;
 import com.ba_aprende.ecommerce.repository.PedidoRepository;
-import com.ba_aprende.ecommerce.repository.ProductoRepository;
 import org.junit.jupiter.api.BeforeEach;
 
 
 import java.util.List;
-import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
