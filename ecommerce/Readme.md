@@ -18,6 +18,8 @@ Este proyecto es una API REST desarrollada en **Java 21 + Spring Boot** que perm
 - Docker
 - Deploy en Render https://render.com/
 - Postgress Render
+- JUnit
+- Mockito
 ---
 
 ## ⚙️ Configuración y ejecución
