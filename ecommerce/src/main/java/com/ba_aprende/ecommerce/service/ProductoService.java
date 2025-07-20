@@ -1,9 +1,11 @@
 package com.ba_aprende.ecommerce.service;
 
+import com.ba_aprende.ecommerce.dto.product.ProductoCreateDto;
 import com.ba_aprende.ecommerce.dto.product.ProductoDtoResponse;
 import com.ba_aprende.ecommerce.dto.product.ProductoUpdateDto;
 import com.ba_aprende.ecommerce.entity.LineaPedido;
 import com.ba_aprende.ecommerce.entity.Producto;
+import com.ba_aprende.ecommerce.exception.ProductoDuplicadoException;
 import com.ba_aprende.ecommerce.exception.ProductoNoFoundException;
 import com.ba_aprende.ecommerce.repository.ProductoRepository;
 import org.springframework.stereotype.Service;
@@ -49,6 +51,21 @@ public class ProductoService {
                 .findByNombre(nombre)
                 .orElseThrow(()->new ProductoNoFoundException("Producto con nombre " + nombre + " no encontrado"));
         return productToDto(producto);
+    }
+    public ProductoDtoResponse create(ProductoCreateDto dto){
+       boolean existe=productoRepository.findByNombre(dto.getNombre()).isPresent();
+        if(existe){
+            throw new ProductoDuplicadoException("El producto con el nombre "+dto.getNombre()+" ya existe.");
+        }
+        Producto nuevoProducto=Producto.builder()
+                .nombre(dto.getNombre())
+                .precio(dto.getPrecio())
+                .categoria(dto.getCategoria())
+                .descripcion(dto.getDescripcion())
+                .imagenUrl(dto.getImagenUrl())
+                .stock(dto.getStock())
+                .build();
+        return productToDto(productoRepository.save(nuevoProducto));
     }
     public ProductoDtoResponse deleteById(long id){
         Producto producto = productoRepository

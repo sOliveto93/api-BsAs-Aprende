@@ -16,6 +16,12 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
     }
+    @ExceptionHandler(ProductoDuplicadoException.class)
+    public ResponseEntity<ErrorResponse> handleProductoDuplicadoException(ProductoDuplicadoException ex){
+        ErrorResponse errorResponse=new ErrorResponse(ex.getMessage(),409,LocalDateTime.now());
+
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(errorResponse);
+    }
     @ExceptionHandler(PedidoNotFoundException.class)
     public ResponseEntity<ErrorResponse> handlePedidoNotFoundException(PedidoNotFoundException ex){
         ErrorResponse errorResponse=new ErrorResponse(ex.getMessage(),404, LocalDateTime.now());

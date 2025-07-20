@@ -1,5 +1,6 @@
 package com.ba_aprende.ecommerce.controller;
 
+import com.ba_aprende.ecommerce.dto.product.ProductoCreateDto;
 import com.ba_aprende.ecommerce.dto.product.ProductoDtoResponse;
 import com.ba_aprende.ecommerce.dto.product.ProductoUpdateDto;
 import com.ba_aprende.ecommerce.service.ProductoService;
@@ -30,6 +31,10 @@ public class ProductoController {
     @GetMapping("/getByName")
     ResponseEntity<ProductoDtoResponse> getByName(@RequestParam String nombre){
         return ResponseEntity.ok().body(productoService.getByName(nombre));
+    }
+    @GetMapping("/create")
+    ResponseEntity<ProductoDtoResponse> create(@RequestBody ProductoCreateDto dto){
+        return ResponseEntity.ok().body(productoService.create(dto));
     }
     @DeleteMapping("/deleteById/{id}")
     ResponseEntity<ProductoDtoResponse> deleteById(@PathVariable long id){
