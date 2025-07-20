@@ -77,10 +77,11 @@ com.ba_aprende.ecommerce
 - DELETE /cliente/deleteById/{id} → Dar de baja cliente(baja logica)
 
 📦 Productos
-- GET /productos/getAll{id} → Obtener todos los productos
-- GET /productos/getById/{id} → Obtener los productos por ID
-- GET /productos/getByName → Obtener producto por nombre ej→ /productos/getByName?nombre=Teclado Redragon
-- POST /productos
+- GET /producto/getAll{id} → Obtener todos los productos
+- GET /producto/getById/{id} → Obtener los productos por ID
+- GET /producto/getByName → Obtener producto por nombre ej → /productos/getByName?nombre=Teclado Redragon (Respetar mayusculas y espacios)
+- 
+- POST /producto/create → crear producto
 
 - PUT /productos/updateProduct → Modifica un el precio y el stock de un producto dado.
 ```json
@@ -102,7 +103,7 @@ com.ba_aprende.ecommerce
 - POST /pedido/create → Crear pedido 
 
 Crear un pedido - Ejemplo JSON
-POST /pedidos
+POST /pedido/create
 ```json
 {
   "idCliente": 1, <-- obligatorio que exista el cliente y que este activo
@@ -125,9 +126,11 @@ POST /pedidos
 El sistema responde con códigos y mensajes claros según la situación:
 
 Código	Descripción
-- 404	Recurso no encontrado
 - 400	Datos inválidos o stock insuficiente
-- 403	Cliente dado de baja / inactivo
+- 403	Cliente dado de baja / inactivo (permisos rebocados en la app)
+- 404	Recurso no encontrado
+- 409	Conflicto (ej-> usuario con ese dni ya existe)
+
 - 500	Error interno del servidor
 
 Ejemplo:
