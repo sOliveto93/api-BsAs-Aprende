@@ -20,8 +20,6 @@ Este proyecto es una API REST desarrollada en **Java 21 + Spring Boot** que perm
 ## ⚙️ Configuración y ejecución
 https://api-bsas-aprende.onrender.com 
 
-doc con Swagger --> https://api-bsas-aprende.onrender.com/swagger-ui.html
-
 (el deploy esta en Render por lo tanto al principio hay tiempo de espera mientras levanta el back)
 
 ## Ejecuta en local (cambiar entorno de spring a dev)
@@ -53,7 +51,8 @@ Usuario: sa
 Password: (vacío)
 ```
 4. Accedé a  documentacion en Swagger (opcional):
-URL: http://localhost:8080/swagger-ui.html
+URL: http://localhost:8080/swagger-ui.html --> entorno dev
+URL : https://api-bsas-aprende.onrender.com/swagger-ui.html --> entorno produccion
 
 ## 🧱 Estructura del proyecto 
 ```
