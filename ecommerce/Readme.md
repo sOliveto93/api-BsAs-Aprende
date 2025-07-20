@@ -1,0 +1,133 @@
+# 🛒 API REST - Sistema de eCommerce
+
+Este proyecto es una API REST desarrollada en **Java 21 + Spring Boot** que permite gestionar clientes, productos, pedidos y líneas de pedido. Pensado como base para una tienda online simple o para prácticas académicas con arquitectura por capas y DTOs.
+
+---
+
+## 🚀 Tecnologías utilizadas
+
+- Java 21
+- Spring Boot
+- Spring Web
+- Spring Data JPA
+- H2 Database
+- Lombok
+- Jakarta Validation
+- Maven
+
+---
+
+## ⚙️ Configuración y ejecución
+
+1. Cloná el repositorio:
+
+```bash
+   git clone https://github.com/tu-usuario/api-BsAs-Aprende
+   cd api-BsAs-Aprende
+```
+2. Ejecutá la aplicación:
+```bash
+./mvnw spring-boot:run
+```
+3. Accedé a H2 Console (opcional):
+
+```bash
+URL: http://localhost:8080/h2-console
+
+JDBC URL: jdbc:h2:mem:testdb
+
+Usuario: sa
+
+Password: (vacío)
+```
+4. Accedé a  documentacion en Swagger (opcional):
+URL: http://localhost:8080/swagger-ui.html
+
+## 🧱 Estructura del proyecto 
+```
+com.ba_aprende.ecommerce
+├── 📦 controller        → Controladores REST
+├── 📨 dto              → Clases DTO para entrada/salida
+├── 🧬 entity           → Entidades JPA
+├── 🚨 exception        → Excepciones personalizadas + handler global
+├── 🗃️ repository       → Repositorios JPA
+├── ⚙️ service          → Lógica de negocio
+└── 🚀 EcommerceApplication.java  → Clase principal (Main)
+```
+## 🔌 Endpoints principales
+🧑 Clientes
+- GET /cliente/getAll       → Obtener todos los clientes(activos e inactivos)
+- GET /cliente/getById/{id} → Obtener cliente por ID(activos e inactivos)
+- GET /cliente/getByDni/{id} → Obtener cliente(activos e inactivos) por dni ej->/cliente/getByDni/12345678
+
+
+- POST /cliente/create → Crear cliente
+
+- DELETE /cliente/deleteById/{id} → Dar de baja cliente(baja logica)
+
+📦 Productos
+- GET /productos/getAll{id} → Obtener todos los productos
+- GET /productos/getById/{id} → Obtener los productos por ID
+- GET /productos/getByName → Obtener producto por nombre ej→ /productos/getByName?nombre=Teclado Redragon
+- POST /productos
+
+- PUT /productos/updateProduct → Modifica un el precio y el stock de un producto dado.
+```json
+{
+   id:1,
+   precio:12420,
+   stock:15
+}
+```
+
+- DELETE /producto/deleteById/{id} → Elimina el producto(baja fisica) 
+
+📋 Pedidos
+
+- GET /pedido/getAll → Obtener todos los pedidos.
+- GET /pedido/getById/{id} → Obtener pedido por ID.
+- GET /pedido/getPedidosByCliente/{id} → Obtener pedidos asociados a un cliente determinado por ID.
+
+- POST /pedido/create → Crear pedido 
+
+Crear un pedido - Ejemplo JSON
+POST /pedidos
+```json
+{
+  "idCliente": 1, <-- obligatorio que exista el cliente y que este activo
+  "lineas": [
+    {
+      "productoId": 2,
+      "cantidad": 3
+    },
+    {
+      "productoId": 4,
+      "cantidad": 1
+    }
+  ]
+}
+```
+- DELETE /pedido/deleteById/{id} → Elimina el pedido (baja fisica) 
+
+
+## Manejo de errores
+El sistema responde con códigos y mensajes claros según la situación:
+
+Código	Descripción
+- 404	Recurso no encontrado
+- 400	Datos inválidos o stock insuficiente
+- 403	Cliente dado de baja / inactivo
+- 500	Error interno del servidor
+
+Ejemplo:
+
+```json
+{
+  "mensaje": "Cliente con el id 5 está dado de baja. No puede registrar pedidos",
+  "codigo": 403
+}
+```
+
+📝 Autor
+Desarrollado por Sebastián Oliveto como parte de un proyecto para Buenos Aires Aprende Curso Java Back-End.
+Podés contactarme para dudas o sugerencias.

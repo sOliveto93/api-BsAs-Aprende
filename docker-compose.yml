@@ -1,0 +1,31 @@
+version: '1'
+
+services:
+  app_ecommerce:
+    build: ecommerce
+    mem_limit: 512m
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      DB_URL: jdbc:mysql://config_bd_ecommerce:3306/bd_ecommerce?createDatabaseIfNotExist=true&serverTimezone=UTC
+      DB_USER_NAME: root
+      DB_PASSWORD: root
+    restart: always
+    depends_on: 
+      config_bd_ecommerce:
+        condition: service_healthy
+  config_bd_ecommerce:
+    image: mysql:8.0.33
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: bd_ecommerce
+    restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin","ping","-h","localhost"]
+      timeout: 10s
+      retries: 10 
+      
