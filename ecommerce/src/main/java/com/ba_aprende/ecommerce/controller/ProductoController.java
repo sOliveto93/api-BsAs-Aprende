@@ -32,7 +32,7 @@ public class ProductoController {
     ResponseEntity<ProductoDtoResponse> getByName(@RequestParam String nombre){
         return ResponseEntity.ok().body(productoService.getByName(nombre));
     }
-    @GetMapping("/create")
+    @PostMapping("/create")
     ResponseEntity<ProductoDtoResponse> create(@RequestBody ProductoCreateDto dto){
         return ResponseEntity.ok().body(productoService.create(dto));
     }
