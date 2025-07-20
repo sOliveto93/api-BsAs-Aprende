@@ -14,7 +14,10 @@ Este proyecto es una API REST desarrollada en **Java 21 + Spring Boot** que perm
 - Lombok
 - Jakarta Validation
 - Maven
+- Swagger
 - Docker
+- Deploy en Render https://render.com/
+- Postgress Render
 ---
 
 ## ⚙️ Configuración y ejecución
