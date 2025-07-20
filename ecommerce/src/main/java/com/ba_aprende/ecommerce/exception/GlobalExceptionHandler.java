@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.servlet.NoHandlerFoundException;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -44,6 +45,11 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorResponse> handleClienteInactivoException(ClienteInactivoException ex) {
         ErrorResponse errorResponse = new ErrorResponse(ex.getMessage(), 403,LocalDateTime.now());
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body(errorResponse);
+    }
+    @ExceptionHandler(NoHandlerFoundException.class)
+    public ResponseEntity<ErrorResponse> handleNoHandlerFoundException(NoHandlerFoundException ex) {
+        ErrorResponse errorResponse = new ErrorResponse("Ruta no encontrada", 404, LocalDateTime.now());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
     }
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleGeneralException(Exception ex) {
