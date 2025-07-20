@@ -51,8 +51,8 @@ Usuario: sa
 Password: (vacío)
 ```
 4. Accedé a  documentacion en Swagger (opcional):
-URL: http://localhost:8080/swagger-ui.html --> entorno dev
-URL : https://api-bsas-aprende.onrender.com/swagger-ui.html --> entorno produccion
+-URL: http://localhost:8080/swagger-ui.html --> entorno dev
+-URL : https://api-bsas-aprende.onrender.com/swagger-ui.html --> entorno produccion
 
 ## 🧱 Estructura del proyecto 
 ```
