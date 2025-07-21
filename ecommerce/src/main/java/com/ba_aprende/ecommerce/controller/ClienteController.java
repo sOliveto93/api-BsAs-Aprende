@@ -2,7 +2,6 @@ package com.ba_aprende.ecommerce.controller;
 
 import com.ba_aprende.ecommerce.dto.Cliente.ClienteDto;
 import com.ba_aprende.ecommerce.dto.Cliente.ClienteDtoResponse;
-import com.ba_aprende.ecommerce.dto.pedido.PedidoDtoResponse;
 import com.ba_aprende.ecommerce.service.ClienteService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +24,7 @@ public class ClienteController {
     }
     @GetMapping("/getById/{id}")
     public ClienteDtoResponse getById(@PathVariable long id){
-        return clienteService.getById(id);
+        return clienteService.getClienteDtoById(id);
     }
     @GetMapping("/getByDni/{dni}")
     public ClienteDtoResponse getById(@PathVariable int dni){

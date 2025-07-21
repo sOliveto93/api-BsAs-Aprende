@@ -66,13 +66,13 @@ public class ClienteServiceTest {
     @Test
     public void getById_retornaDtoSiExiste(){
         when(clienteRepository.findById(1L)).thenReturn(Optional.of(clienteActivo));
-        ClienteDtoResponse dto= clienteService.getById(1L);
+        ClienteDtoResponse dto= clienteService.getClienteDtoById(1L);
         assertEquals("usuario Prueba activo",dto.getNombre());
     }
     @Test
     public void getById_lanzarExcepcionSiNoExiste(){
         when(clienteRepository.findById(1L)).thenReturn(Optional.empty());
-        assertThrows(ClienteNotFoundException.class,()->clienteService.getById(1L));
+        assertThrows(ClienteNotFoundException.class,()->clienteService.getClienteDtoById(1L));
     }
 
     @Test

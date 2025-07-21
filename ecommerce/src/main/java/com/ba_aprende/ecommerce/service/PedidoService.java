@@ -100,7 +100,7 @@ public class PedidoService {
         return pedidoToDto(nuevoPedido);
     }
     public List<PedidoDtoResponse> getPedidosByClienteId(long clienteId) {
-        Cliente cliente = clienteService.verificarCliente(clienteId);
+        Cliente cliente = clienteService.getClienteById(clienteId);
         List<Pedido> pedidos = cliente.getPedidos();
         return pedidos.stream().map(pedido->pedidoToDto(pedido)).toList();
     }

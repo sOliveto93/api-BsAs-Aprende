@@ -19,9 +19,13 @@ public class ClienteService {
         this.clienteRepository=clienteRepository;
     }
 
-    public ClienteDtoResponse getById(long id){
+    public ClienteDtoResponse getClienteDtoById(long id){
         Cliente cliente=clienteRepository.findById(id).orElseThrow(()->new ClienteNotFoundException("Cliente con el id "+id+" no existe") );
         return clienteToDto(cliente);
+    }
+    public Cliente getClienteById(long id){
+        Cliente cliente=clienteRepository.findById(id).orElseThrow(()->new ClienteNotFoundException("Cliente con el id "+id+" no existe") );
+        return cliente;
     }
     public Cliente verificarCliente(long id){
         Cliente cliente=clienteRepository.findById(id).orElseThrow(()->new ClienteNotFoundException("Cliente con el id "+id+" no existe") );
