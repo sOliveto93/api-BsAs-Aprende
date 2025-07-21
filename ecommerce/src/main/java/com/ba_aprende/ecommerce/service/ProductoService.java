@@ -53,6 +53,7 @@ public class ProductoService {
         return productToDto(producto);
     }
     public ProductoDtoResponse create(ProductoCreateDto dto){
+
        boolean existe=productoRepository.findByNombre(dto.getNombre()).isPresent();
         if(existe){
             throw new ProductoDuplicadoException("El producto con el nombre "+dto.getNombre()+" ya existe.");

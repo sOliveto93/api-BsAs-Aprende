@@ -79,8 +79,11 @@ public class PedidoService {
     }
     @Transactional
     public PedidoDtoResponse crearPedido(PedidoDto pedido) {
-       Pedido nuevoPedido=new Pedido();
 
+        if(pedido.getLineas().isEmpty()){
+            throw new IllegalArgumentException("No hay ningun producto solicitado en el body de la request");
+        }
+       Pedido nuevoPedido=new Pedido();
 
        List<LineaPedido>lineasPedido=pedido.getLineas().stream()
                .map(lineaDto -> lineaDtoToLinea(lineaDto,nuevoPedido))
