@@ -4,6 +4,10 @@
 #EXPOSE 8080
 #ENTRYPOINT ["java","-jar","app_ecommerce.jar"]
 
+########################################
+#Si queres despliegue local descomenta la config de arriba
+#######################################
+
 # Etapa 1: Construcción
 FROM maven:3.9.6-eclipse-temurin-21 AS build
 WORKDIR /app
