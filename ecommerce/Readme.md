@@ -120,7 +120,7 @@ com.ba_aprende.ecommerce
 - DELETE /cliente/deleteById/{id} → Dar de baja cliente(baja logica)
 
 📦 Productos
-- GET /producto/getAll{id} → Obtener todos los productos
+- GET /producto/getAll → Obtener todos los productos
 - GET /producto/getById/{id} → Obtener los productos por ID
 - GET /producto/getByName → Obtener producto por nombre ej → /productos/getByName?nombre=Teclado Redragon (Respetar mayusculas y espacios)
 - 
