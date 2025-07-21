@@ -25,6 +25,8 @@ Este proyecto es una API REST desarrollada en **Java 21 + Spring Boot** que perm
 ## ⚙️ Configuración y ejecución
 https://api-bsas-aprende.onrender.com 
 
+https://radiant-manatee-f7d18e.netlify.app/ front para probar en produccion (si no funciona hay que esperar que despliegue el back)
+
 (el deploy esta en Render por lo tanto al principio hay tiempo de espera mientras levanta el back)
 
 ## Ejecuta en local (cambiar entorno de spring a dev)
