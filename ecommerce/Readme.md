@@ -1,7 +1,7 @@
 # 🛒 API REST - Sistema de eCommerce
 
 Este proyecto es una API REST desarrollada en **Java 21 + Spring Boot** que permite gestionar clientes, productos, pedidos y líneas de pedido. Pensado como base para una tienda online simple o para prácticas académicas con arquitectura por capas y DTOs.
-
+https://github.com/sOliveto93/api-BsAs-Aprende-front -> repo del front
 ---
 
 ## 🚀 Tecnologías utilizadas
