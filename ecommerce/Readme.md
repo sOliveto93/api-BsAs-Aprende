@@ -61,6 +61,12 @@ Password: (vacío)
 - URL: http://localhost:8080/swagger-ui.html --> entorno dev
 - URL : https://api-bsas-aprende.onrender.com/swagger-ui.html --> entorno produccion
 
+5. Si utilizas docker
+  
+```
+ Docker compose esta configurado para levantar un servicio de mysql pero en la configuracion application-prod.properties las config estan comentadas hay que cambiar postgress por mysql para que lenvante correctamente. Esto se hizo asi ya que no se vio la necesidad de separar en perfiles por bd ya que en prod se usa postgres(pero lo puedes cambiar) y en dev se utiliza h2.
+```
+   
 ## 🧱 Estructura del proyecto 
 ```
 com.ba_aprende.ecommerce
